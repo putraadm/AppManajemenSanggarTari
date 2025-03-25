@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sanggar Tari Griya Satya</string>
+    <string name="fab_add_user">Add user</string>
+    <string name="fab_add_jadwal">Add Jadwal</string>
+    <string name="fab_add_absensi">Add Absensi</string>
+    <string name="fab_add_report">Add Report</string>
+    <string name="fab_add_lomba">Add Lomba</string>
+</resources>
