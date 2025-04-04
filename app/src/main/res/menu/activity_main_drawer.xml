@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_user"
+            android:icon="@drawable/user_icon"
+            android:title="@string/menu_user" />
+        <item
+            android:id="@+id/nav_jadwal_kelas"
+            android:icon="@drawable/schedule_icon"
+            android:title="@string/menu_jadwal_kelas" />
+        <item
+            android:id="@+id/nav_absensi"
+            android:icon="@drawable/pen_icon"
+            android:title="@string/menu_absensi" />
+        <item
+            android:id="@+id/nav_info_lomba"
+            android:icon="@drawable/bookmark_icon_24"
+            android:title="@string/menu_info_lomba" />
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/pen_nib_icon_24"
+            android:title="@string/menu_report" />
+        <item android:title="">
+            <menu>
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/logout_icon"
+                    android:onClick="logout"
+                    android:title="@string/action_logout"/>
+            </menu>
+        </item>
+    </group>
+</menu>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="zhafran.putra.appproject2ckel3.ui_user.HomeFragmentUser"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home_user" />
+    <fragment
+        android:id="@+id/navigation_jadwalKelasFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_user.JadwalKelasFragmentUser"
+        android:label="@string/menu_jadwal_kelas"
+        tools:layout="@layout/fragment_jadwal_kelas_user" />
+    <fragment
+        android:id="@+id/navigation_absensiFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_user.JadwalKelasFragmentUser"
+        android:label="@string/menu_absensi"
+        tools:layout="@layout/fragment_absensi_user" />
+    <fragment
+        android:id="@+id/navigation_lombaFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_user.LombaFragmentUser"
+        android:label="@string/menu_info_lomba"
+        tools:layout="@layout/fragment_lomba_user" />
+    <fragment
+        android:id="@+id/navigation_reportFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_user.ReportFragmentUser"
+        android:label="@string/menu_report"
+        tools:layout="@layout/fragment_report_user" />
+
+</navigation>

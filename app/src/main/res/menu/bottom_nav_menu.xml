@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/menu_home" />
+
+    <item
+        android:id="@+id/navigation_jadwalKelasFragment"
+        android:icon="@drawable/schedule_icon"
+        android:title="@string/menu_jadwal_kelas" />
+
+    <item
+        android:id="@+id/navigation_absensiFragment"
+        android:icon="@drawable/pen_icon"
+        android:title="@string/menu_absensi" />
+
+    <item
+        android:id="@+id/navigation_lombaFragment"
+        android:icon="@drawable/bookmark_icon_24"
+        android:title="@string/menu_info_lomba" />
+
+    <item
+        android:id="@+id/navigation_reportFragment"
+        android:icon="@drawable/pen_nib_icon_24"
+        android:title="@string/menu_report"/>
+
+</menu>
