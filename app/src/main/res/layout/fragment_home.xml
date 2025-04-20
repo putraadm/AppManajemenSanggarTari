@@ -3,15 +3,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui_admin.HomeFragment">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:textSize="10pt"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/purple_5b308c"
         android:text="@string/hello_blank_fragment_admin" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="top|center_horizontal"
+        android:src="@drawable/logo_sanggar_gk" />
+
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="350dp"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:weightSum="2"
+        android:gravity="center_horizontal"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btnAddUser"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:icon="@drawable/baseline_add_24"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/purple_5b308c"
+                android:text="Tambah User"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btnAddJadwalKelas"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:icon="@drawable/baseline_add_24"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/purple_5b308c"
+                android:text="Tambah Jadwal Kelas"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btnAddAbsen"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:icon="@drawable/baseline_add_24"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/purple_5b308c"
+                android:text="Tambah Absensi"
+                android:layout_marginStart="10dp" />
+
+            <Button
+                android:id="@+id/btnAddLomba"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:icon="@drawable/baseline_add_24"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/purple_5b308c"
+                android:text="Tambah Info Lomba"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="10dp" />
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

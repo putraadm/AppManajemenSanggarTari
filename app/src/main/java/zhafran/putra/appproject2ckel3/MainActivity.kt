@@ -7,16 +7,21 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
     private lateinit var context: Context
     private lateinit var btnLogin: Button
+    private lateinit var usernameInputLayout: TextInputLayout
+    private lateinit var passwordInputLayout: TextInputLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         context = this
         btnLogin = findViewById(R.id.btnLogin)
+        usernameInputLayout = findViewById(R.id.textInputLayout)
+        passwordInputLayout = findViewById(R.id.textInputLayout2)
 
         val pref = preferences(context)
         if (pref.prefStatus) {
@@ -30,28 +35,45 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnLogin.setOnClickListener {
-            val username = findViewById<EditText>(R.id.edUsername).text.toString()
-            val password = findViewById<EditText>(R.id.edPassword).text.toString()
+            val usernameEditText = findViewById<EditText>(R.id.edUsername)
+            val passwordEditText = findViewById<EditText>(R.id.edPassword)
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+
+            var valid = true
+
             if (username.isEmpty()) {
-                Snackbar.make(findViewById(R.id.main), "Username tidak boleh kosong", Snackbar.LENGTH_SHORT).show()
-            } else if (password.isEmpty()) {
-                Snackbar.make(findViewById(R.id.main), "Password tidak boleh kosong", Snackbar.LENGTH_SHORT).show()
+                usernameInputLayout.error = "Username tidak boleh kosong"
+                valid = false
             } else {
-                val intent = if (username == "admin" && password == "admin") {
-                    pref.prefStatus = true
-                    pref.prefLevel = "admin"
-                    Intent(context, AdminActivity::class.java)
-                } else if (username == "user" && password == "user") {
-                    pref.prefStatus = true
-                    pref.prefLevel = "user"
-                    Intent(context, UserActivity::class.java)
-                } else {
-                    Snackbar.make(findViewById(R.id.main), "Username atau password salah", Snackbar.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-                startActivity(intent)
-                finish()
+                usernameInputLayout.error = null
             }
+
+            if (password.isEmpty()) {
+                passwordInputLayout.error = "Password tidak boleh kosong"
+                valid = false
+            } else {
+                passwordInputLayout.error = null
+            }
+
+            if (!valid) {
+                return@setOnClickListener
+            }
+
+            val intent = if (username == "admin" && password == "admin") {
+                pref.prefStatus = true
+                pref.prefLevel = "admin"
+                Intent(context, AdminActivity::class.java)
+            } else if (username == "user" && password == "user") {
+                pref.prefStatus = true
+                pref.prefLevel = "user"
+                Intent(context, UserActivity::class.java)
+            } else {
+                Snackbar.make(findViewById(R.id.main), "Username atau password salah", Snackbar.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            startActivity(intent)
+            finish()
         }
     }
 }
