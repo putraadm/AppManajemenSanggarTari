@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sanggar Tari Griya Satya</string>
+    <string name="app_name">Sanggar Tari Griya Kencana</string>
     <string name="open_nav">Open Drawer Layout</string>
     <string name="close_nav">Close Drawer Layout</string>
     <string name="fab_add_user">Add user</string>
@@ -46,6 +46,7 @@
     <string name="nama_siswa">Nama Siswa</string>
     <string name="judul">Judul</string>
     <string name="photo">Photo</string>
+    <string name="jam">Jam</string>
     <string-array name="kelas">
         <item>A</item>
         <item>B</item>

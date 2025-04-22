@@ -119,7 +119,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvTitle"
+                android:id="@+id/tvTitleLabel"
                 android:labelFor="@+id/edJudul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,12 +144,12 @@
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle">
+                app:layout_constraintTop_toBottomOf="@id/tvTitleLabel">
 
                 <EditText
                     android:id="@+id/edJudul"
@@ -159,7 +159,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvDesc"
+                android:id="@+id/tvDescLabel"
                 android:labelFor="@+id/edDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -184,12 +184,12 @@
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDesc">
+                app:layout_constraintTop_toBottomOf="@id/tvDescLabel">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edDesc"

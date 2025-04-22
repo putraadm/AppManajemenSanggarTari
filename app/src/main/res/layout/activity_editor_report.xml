@@ -90,7 +90,7 @@
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxBackgroundMode="filled"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintTop_toBottomOf="@id/titleBarReport"
@@ -116,17 +116,32 @@
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxBackgroundMode="filled"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeColor="?attr/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textInputLayout">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tanggal"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/dateInputLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/tanggal"
-                    android:inputType="date" />
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/schedule_icon"
+                    app:endIconContentDescription="Select date">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tanggal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/tanggal"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:background="@color/white"
+                        android:clickable="true" />
+                </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -140,6 +155,7 @@
                 app:boxCornerRadiusBottomStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusBottomEnd="30dp"
+                app:boxStrokeWidth="0dp"
                 app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -165,6 +181,7 @@
                 app:boxCornerRadiusBottomStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusBottomEnd="30dp"
+                app:boxStrokeWidth="0dp"
                 app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -189,6 +206,7 @@
                 app:boxCornerRadiusBottomStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusBottomEnd="30dp"
+                app:boxStrokeWidth="0dp"
                 app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -213,6 +231,7 @@
                 app:boxCornerRadiusBottomStart="30dp"
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusBottomEnd="30dp"
+                app:boxStrokeWidth="0dp"
                 app:boxBackgroundMode="filled"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -227,7 +246,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_saveReport"
+                android:id="@+id/btnSaveReport"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"

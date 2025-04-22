@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
-            android:id="@+id/backBtn"
+            android:id="@+id/backBtnUser"
             android:contentDescription="Kembali"
             android:minHeight="48dp"
             android:minWidth="48dp"
@@ -102,7 +102,7 @@
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxBackgroundMode="filled"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintTop_toBottomOf="@+id/tvUsername"
@@ -142,7 +142,7 @@
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxBackgroundMode="filled"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintTop_toBottomOf="@id/tvFullName"
@@ -157,7 +157,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvKelas"
+                android:id="@+id/tvKelasLabel"
                 android:labelFor="@+id/actvKelas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -183,10 +183,10 @@
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxBackgroundMode="filled"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
-                app:layout_constraintTop_toBottomOf="@id/tvKelas"
+                app:layout_constraintTop_toBottomOf="@id/tvKelasLabel"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
                 <AutoCompleteTextView
@@ -222,7 +222,7 @@
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxBackgroundMode="filled"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintTop_toBottomOf="@id/tvEmail"
@@ -262,7 +262,7 @@
                 app:boxCornerRadiusBottomEnd="30dp"
                 app:boxBackgroundMode="filled"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintTop_toBottomOf="@id/tvPassword"

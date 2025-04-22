@@ -82,8 +82,8 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/tvKelas"
-                android:labelFor="@+id/edNmKelas"
+                android:id="@+id/tvKelasLabel"
+                android:labelFor="@+id/edKelas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/kelas"
@@ -99,7 +99,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 app:boxBackgroundMode="filled"
                 app:boxCornerRadiusBottomEnd="30dp"
@@ -107,23 +107,23 @@
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvKelas">
+                app:layout_constraintTop_toBottomOf="@id/tvKelasLabel">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edNmKelas"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textPersonName" />
+                    <EditText
+                        android:id="@+id/edKelas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvHari"
-                android:labelFor="@+id/edTgl"
+                android:id="@+id/tvHariLabel"
+                android:labelFor="@+id/edHari"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hari"
@@ -147,13 +147,12 @@
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="00dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvHari">
-
+                app:layout_constraintTop_toBottomOf="@id/tvHariLabel">
                 <EditText
                     android:id="@+id/edHari"
                     android:layout_width="match_parent"
@@ -162,7 +161,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvJam"
+                android:id="@+id/tvJamLabel"
                 android:labelFor="@+id/edJam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -187,22 +186,38 @@
                 app:boxCornerRadiusTopEnd="30dp"
                 app:boxCornerRadiusTopStart="30dp"
                 app:boxStrokeColor="?attr/colorPrimary"
-                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextAppearance="@style/TextAppearance.Material3.BodyMedium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvJam">
+                app:layout_constraintTop_toBottomOf="@id/tvJamLabel">
 
-                <EditText
-                    android:id="@+id/edJam"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/timeInputLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="date" />
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="8dp"
+                    android:paddingStart="8dp"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_access_time"
+                    app:endIconContentDescription="Select time">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edJam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:background="@color/white"
+                        android:hint="@string/jam" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_saveJadwal"
+                android:id="@+id/btnSaveJadwal"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
