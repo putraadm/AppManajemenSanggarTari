@@ -14,23 +14,102 @@
         android:id="@+id/nav_user"
         android:name="zhafran.putra.appproject2ckel3.ui_admin.UserFragment"
         android:label="@string/menu_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/action_nav_user_to_adminEditUserFragment"
+            app:destination="@id/adminEditUserFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_jadwal_kelas"
         android:name="zhafran.putra.appproject2ckel3.ui_admin.JadwalKelasFragment"
         android:label="@string/menu_jadwal_kelas"
-        tools:layout="@layout/fragment_jadwal_kelas" />
+        tools:layout="@layout/fragment_jadwal_kelas">
+        <action
+            android:id="@+id/action_nav_jadwal_kelas_to_adminEditJadwalFragment"
+            app:destination="@id/adminEditJadwalFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_absensi"
         android:name="zhafran.putra.appproject2ckel3.ui_admin.AbsensiFragment"
-        android:label="@string/menu_absensi" />
+        android:label="@string/menu_absensi">
+        <action
+            android:id="@+id/action_nav_absensi_to_adminEditAbsensiFragment"
+            app:destination="@id/adminEditAbsensiFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_info_lomba"
         android:name="zhafran.putra.appproject2ckel3.ui_admin.LombaFragment"
-        android:label="@string/menu_info_lomba" />
+        android:label="@string/menu_info_lomba">
+        <action
+            android:id="@+id/action_nav_info_lomba_to_adminEditLombaFragment"
+            app:destination="@id/adminEditLombaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_report"
         android:name="zhafran.putra.appproject2ckel3.ui_admin.ReportFragment"
-        android:label="@string/menu_report" />
+        android:label="@string/menu_report">
+        <action
+            android:id="@+id/action_nav_report_to_adminEditReportFragment"
+            app:destination="@id/adminEditReportFragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/adminEditUserFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_admin.AdminEditUserFragment"
+        android:label="Editor User"
+        tools:layout="@layout/fragment_admin_edit_user">
+        <argument
+            android:name="user_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminEditJadwalFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_admin.AdminEditJadwalFragment"
+        android:label="Editor Jadwal"
+        tools:layout="@layout/fragment_admin_edit_jadwal">
+        <argument
+            android:name="jadwal_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminEditAbsensiFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_admin.AdminEditAbsensiFragment"
+        android:label="Editor Absensi"
+        tools:layout="@layout/fragment_admin_edit_absensi">
+        <argument
+            android:name="absensi_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_adminEditAbsensiFragment_to_adminQrScannerFragment"
+            app:destination="@id/adminQrScannerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminEditLombaFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_admin.AdminEditLombaFragment"
+        android:label="Editor Lomba"
+        tools:layout="@layout/fragment_admin_edit_lomba">
+        <argument
+            android:name="lomba_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminEditReportFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_admin.AdminEditReportFragment"
+        android:label="Editor Report"
+        tools:layout="@layout/fragment_admin_edit_report">
+        <argument
+            android:name="report_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adminQrScannerFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_admin.AdminQrScannerFragment"
+        android:label="Admin QR Scanner"
+        tools:layout="@layout/fragment_absensi_qr_scanner" />
 </navigation>

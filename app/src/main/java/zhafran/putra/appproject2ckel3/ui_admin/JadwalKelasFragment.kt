@@ -1,28 +1,28 @@
 package zhafran.putra.appproject2ckel3.ui_admin
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.ListView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import zhafran.putra.appproject2ckel3.EditorJadwalActivity
 import zhafran.putra.appproject2ckel3.R
 import zhafran.putra.appproject2ckel3.adapter.JadwalAdapter
 import zhafran.putra.appproject2ckel3.model.Jadwal
-import zhafran.putra.appproject2ckel3.viewmodel.JadwalViewModel
+import zhafran.putra.appproject2ckel3.repository.JadwalRepository
 
 class JadwalKelasFragment : Fragment() {
     private lateinit var fab: View
-    private lateinit var listView: ListView
+    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: JadwalAdapter
-    private lateinit var jadwalViewModel: JadwalViewModel
 
-    private val EDIT_JADWAL_REQUEST_CODE = 1001
+    private var jadwalRepository: JadwalRepository? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        jadwalRepository = context?.let { JadwalRepository(it) }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,35 +31,25 @@ class JadwalKelasFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_jadwal_kelas, container, false)
 
         fab = view.findViewById(R.id.fab)
-        listView = view.findViewById(R.id.list_view)
+        recyclerView = view.findViewById(R.id.recycler_view)
 
-        adapter = JadwalAdapter(requireContext(), mutableListOf(), ::showPopupMenu)
-        listView.adapter = adapter
-
-        jadwalViewModel = ViewModelProvider(this).get(JadwalViewModel::class.java)
+        adapter = JadwalAdapter(mutableListOf(), ::showPopupMenu)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         loadJadwal()
 
         fab.setOnClickListener {
-            val intent = Intent(requireActivity(), EditorJadwalActivity::class.java)
-            startActivityForResult(intent, EDIT_JADWAL_REQUEST_CODE)
+            (activity as? zhafran.putra.appproject2ckel3.AdminActivity)?.openEditJadwal(0)
         }
 
         return view
     }
 
     private fun loadJadwal() {
-        jadwalViewModel.getAllJadwal().observe(viewLifecycleOwner, Observer { jadwalEntityList ->
-            val jadwalList = jadwalEntityList.map { entity ->
-                Jadwal(
-                    id_jadwal = entity.id_jadwal,
-                    kelas = entity.kelas,
-                    hari = entity.hari,
-                    jam = entity.jam
-                )
-            }
+        jadwalRepository?.getAllJadwal { jadwalList ->
             adapter.updateList(jadwalList.toMutableList())
-        })
+        }
     }
 
     private fun showPopupMenu(view: View, jadwal: Jadwal) {
@@ -68,13 +58,11 @@ class JadwalKelasFragment : Fragment() {
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.menu_edit -> {
-                    val intent = Intent(requireActivity(), EditorJadwalActivity::class.java)
-                    intent.putExtra("jadwal_id", jadwal.id_jadwal)
-                    startActivityForResult(intent, EDIT_JADWAL_REQUEST_CODE)
+                    (activity as? zhafran.putra.appproject2ckel3.AdminActivity)?.openEditJadwal(jadwal.idJadwal ?: 0)
                     true
                 }
                 R.id.menu_delete -> {
-                    jadwalViewModel.deleteJadwal(jadwal.id_jadwal) { success ->
+                    jadwalRepository?.deleteJadwal(jadwal.idJadwal ?: 0) { success ->
                         if (success) {
                             Toast.makeText(requireContext(), "Jadwal deleted", Toast.LENGTH_SHORT).show()
                             loadJadwal()
@@ -88,12 +76,5 @@ class JadwalKelasFragment : Fragment() {
             }
         }
         popup.show()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == EDIT_JADWAL_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            loadJadwal()
-        }
     }
 }

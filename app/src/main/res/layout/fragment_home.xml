@@ -1,99 +1,190 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui_admin.HomeFragment">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"
-        android:textSize="10pt"
-        android:textColor="@color/purple_5b308c"
-        android:text="@string/hello_blank_fragment_admin" />
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="top|center_horizontal"
-        android:src="@drawable/logo_sanggar_gk" />
+    android:background="@color/white"
+    android:padding="16dp">
 
     <LinearLayout
-        android:id="@+id/buttonContainer"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_marginTop="350dp"
-        android:orientation="horizontal"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:weightSum="2"
         android:gravity="center_horizontal"
-        android:divider="?android:attr/dividerHorizontal"
-        android:showDividers="middle">
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvWelcomeAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selamat Datang, Admin!"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:textColor="@color/purple_5b308c"
+            android:layout_marginTop="16dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="150dp"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo_sanggar_gk"
+                android:contentDescription="Logo Sanggar" />
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:weightSum="3">
 
-            <Button
-                android:id="@+id/btnAddUser"
-                style="@style/Widget.MaterialComponents.Button.Icon"
-                app:icon="@drawable/baseline_add_24"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:backgroundTint="@color/purple_5b308c"
-                android:text="Tambah User"
-                android:layout_marginEnd="10dp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
 
-            <Button
-                android:id="@+id/btnAddJadwalKelas"
-                style="@style/Widget.MaterialComponents.Button.Icon"
-                app:icon="@drawable/baseline_add_24"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:backgroundTint="@color/purple_5b308c"
-                android:text="Tambah Jadwal Kelas"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="10dp" />
+                <TextView
+                    android:id="@+id/tvJmlhUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Users"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tvJmlhJadwal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jadwal Kelas"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/tvJmlhLaporan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Laporan"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:layout_marginTop="24dp"
+            android:gravity="center">
 
             <Button
-                android:id="@+id/btnAddAbsen"
-                style="@style/Widget.MaterialComponents.Button.Icon"
-                app:icon="@drawable/baseline_add_24"
+                android:id="@+id/btnKelolaUser"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
+                android:text="Kelola User"
+                android:textSize="7pt"
+                android:textAlignment="textStart"
+                app:icon="@drawable/user_icon"
                 android:backgroundTint="@color/purple_5b308c"
-                android:text="Tambah Absensi"
-                android:layout_marginStart="10dp" />
+                android:textColor="@android:color/white"
+                android:layout_marginVertical="4dp" />
 
             <Button
-                android:id="@+id/btnAddLomba"
-                style="@style/Widget.MaterialComponents.Button.Icon"
-                app:icon="@drawable/baseline_add_24"
+                android:id="@+id/btnKelolaJadwal"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
+                android:text="Kelola Jadwal"
+                android:textSize="7pt"
+                android:textAlignment="textStart"
+                app:icon="@drawable/schedule_icon"
                 android:backgroundTint="@color/purple_5b308c"
-                android:text="Tambah Info Lomba"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="10dp" />
+                android:textColor="@android:color/white"
+                android:layout_marginVertical="4dp" />
+
+            <Button
+                android:id="@+id/btnKelolaAbsensi"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Kelola Absensi"
+                android:textSize="7pt"
+                android:textAlignment="textStart"
+                app:icon="@drawable/pen_icon"
+                android:backgroundTint="@color/purple_5b308c"
+                android:textColor="@android:color/white"
+                android:layout_marginVertical="4dp" />
+
+            <Button
+                android:id="@+id/btnKelolaLomba"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Kelola Info Lomba"
+                android:textSize="7pt"
+                android:textAlignment="textStart"
+                app:icon="@drawable/pen_icon"
+                android:backgroundTint="@color/purple_5b308c"
+                android:textColor="@android:color/white"
+                android:layout_marginVertical="4dp" />
+
+            <Button
+                android:id="@+id/btnKelolaReport"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Kelola Report"
+                android:textSize="7pt"
+                android:textAlignment="textStart"
+                app:icon="@drawable/pen_nib_icon_24"
+                android:backgroundTint="@color/purple_5b308c"
+                android:textColor="@android:color/white"
+                android:layout_marginVertical="4dp" />
         </LinearLayout>
+
     </LinearLayout>
-
 </FrameLayout>

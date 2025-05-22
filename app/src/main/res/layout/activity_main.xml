@@ -50,6 +50,7 @@
 
         <TextView
             android:id="@+id/tvUsernameLabel"
+            android:labelFor="@+id/edUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_username"
@@ -83,6 +84,7 @@
 
         <TextView
             android:id="@+id/tvPasswordLabel"
+            android:labelFor="@+id/edPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_password"

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_margin="5dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="2dp"
     android:backgroundTint="@color/purple_d8cee4">
@@ -12,37 +12,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp"
         android:gravity="center_vertical">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginEnd="8dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvHari"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
+                android:background="@color/purple_5b308c"
                 android:text="Sabtu"
                 android:textColor="#FFFFFF"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="4dp"
-                android:textSize="12sp"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="7dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvJam"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="09.00"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tvlbjam"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:paddingHorizontal="30dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/jam"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvJam"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="6dp"
+                    android:text="09.00"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
         <FrameLayout
@@ -53,13 +69,13 @@
             <TextView
                 android:id="@+id/tvKelas"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="4dp"
+                android:layout_height="match_parent"
+                android:background="@color/purple_5b308c"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="25dp"
                 android:text="Kelas A"
                 android:textColor="#FFFFFF"
-                android:textSize="12sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
         </FrameLayout>
     </LinearLayout>

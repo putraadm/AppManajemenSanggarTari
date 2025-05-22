@@ -6,8 +6,7 @@
     tools:context=".ui_user.LombaFragmentUser">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </FrameLayout>

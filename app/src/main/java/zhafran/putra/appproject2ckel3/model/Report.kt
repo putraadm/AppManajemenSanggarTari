@@ -5,7 +5,11 @@ data class Report(
     val idUser: Int,
     val tanggal: String,
     val wirama: String,
+    val deskripsiWirama: String,
     val wirasa: String,
+    val deskripsiWirasa: String,
     val wiraga: String,
-    val catatan: String
+    val deskripsiWiraga: String,
+    val catatan: String,
+    val semester: String
 )

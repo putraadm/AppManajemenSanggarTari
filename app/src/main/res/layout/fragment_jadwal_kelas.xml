@@ -6,11 +6,12 @@
     android:padding="16dp"
     tools:context=".ui_admin.JadwalKelasFragment">
 
-    <ListView
-        android:id="@+id/list_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="72dp" />
+        android:paddingBottom="72dp"
+        android:paddingTop="8dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

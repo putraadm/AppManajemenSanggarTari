@@ -5,49 +5,52 @@ import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import zhafran.putra.appproject2ckel3.R
 import zhafran.putra.appproject2ckel3.model.Lomba
 
 class LombaAdapter(
-    private val context: Context,
     private var lombaList: MutableList<Lomba>,
     private val onItemClick: (View, Lomba) -> Unit
-) : BaseAdapter() {
+) : RecyclerView.Adapter<LombaAdapter.LombaViewHolder>() {
 
-    override fun getCount(): Int = lombaList.size
+    inner class LombaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val ivPoster: ImageView = itemView.findViewById(R.id.imageView)
+        val tvJudul: TextView = itemView.findViewById(R.id.tvTitle)
+        val tvDeskripsi: TextView = itemView.findViewById(R.id.tvDescription)
 
-    override fun getItem(position: Int): Any = lombaList[position]
-
-    override fun getItemId(position: Int): Long = lombaList[position].idLomba.toLong()
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_data_lomba, parent, false)
-        val lomba = lombaList[position]
-
-        val ivPoster = view.findViewById<ImageView>(R.id.imageView)
-        val tvJudul = view.findViewById<TextView>(R.id.tvTitle)
-        val tvDeskripsi = view.findViewById<TextView>(R.id.tvDescription)
-
-        tvJudul.text = lomba.judul
-        tvDeskripsi.text = lomba.deskripsi
-        if (lomba.poster != null) {
-            val bitmap = BitmapFactory.decodeByteArray(lomba.poster, 0, lomba.poster.size)
-            ivPoster.setImageBitmap(bitmap)
-        } else {
-            ivPoster.setImageResource(R.drawable.ic_launcher_foreground)
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(itemView, lombaList[position])
+                }
+            }
         }
-
-        view.setOnClickListener {
-            onItemClick(it, lomba)
-        }
-
-        return view
     }
 
-    fun updateList(newList: List<Lomba>) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LombaViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_data_lomba, parent, false)
+        return LombaViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: LombaViewHolder, position: Int) {
+        val lomba = lombaList[position]
+        holder.tvJudul.text = lomba.judul
+        holder.tvDeskripsi.text = lomba.deskripsi
+        if (lomba.poster != null && lomba.poster.isNotEmpty()) {
+            val bitmap = BitmapFactory.decodeFile(lomba.poster)
+            holder.ivPoster.setImageBitmap(bitmap)
+        } else {
+            holder.ivPoster.setImageResource(R.drawable.ic_launcher_foreground)
+        }
+    }
+
+    override fun getItemCount(): Int = lombaList.size
+
+    fun updateList(newList: MutableList<Lomba>) {
         lombaList.clear()
         lombaList.addAll(newList)
         notifyDataSetChanged()

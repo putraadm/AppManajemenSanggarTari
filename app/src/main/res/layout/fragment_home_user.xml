@@ -7,21 +7,38 @@
     android:background="?attr/colorSurface"
     tools:context=".ui_user.HomeFragmentUser">
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
         android:layout_gravity="center"
-        android:padding="16dp"
-        android:elevation="4dp"
-        android:clickable="true"
-        android:focusable="true">
+        android:padding="16dp">
 
-        <TextView
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvWelcomeMessageUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hello_blank_fragment_user"
+                android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                android:textColor="?attr/colorPrimary" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGenerateQrCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment_user"
-            android:textAppearance="?attr/textAppearanceHeadlineSmall"
-            android:textColor="?attr/colorPrimary" />
-    </com.google.android.material.card.MaterialCardView>
+            android:text="Generate QR Code" />
+
+    </LinearLayout>
 
 </FrameLayout>
+

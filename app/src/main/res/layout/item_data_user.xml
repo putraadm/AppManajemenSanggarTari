@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:elevation="4dp">
+    android:layout_marginVertical="8dp"
+    android:layout_marginHorizontal="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    android:backgroundTint="@color/purple_d8cee4"
+    app:strokeColor="@color/purple_5b308c"
+    app:strokeWidth="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="@drawable/backgroud_layout">
+        android:gravity="center_vertical">
 
         <ImageView
             android:id="@+id/user_icon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
             android:src="@drawable/profile_icon"
+            app:tint="@color/purple_5b308c"
             android:contentDescription="User Icon"
-            android:layout_marginEnd="16dp" />
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="12dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -32,20 +41,135 @@
                 android:text="Nama Lengkap"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginBottom="4dp" />
+                android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/usernameItem"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Username"
-                android:layout_marginBottom="2dp" />
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/usernameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username :"
+                    android:textSize="14sp"
+                    android:textColor="#666666" />
+                <TextView
+                    android:id="@+id/usernameItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="usertest"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginStart="10dp"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/emailItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/idKelasLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kelas :"
+                    android:textSize="14sp"
+                    android:textColor="#666666" />
+                <TextView
+                    android:id="@+id/idKelasItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginStart="10dp"/>
+            </LinearLayout>
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivInfo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icons8_info"
+            android:contentDescription="More"
+            app:tint="@color/purple_5b308c" />
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
+
+
+<!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_margin="8dp"-->
+<!--    android:elevation="4dp">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="16dp"-->
+<!--        android:background="@drawable/backgroud_layout">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/user_icon"-->
+<!--            android:layout_width="48dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:src="@drawable/profile_icon"-->
+<!--            android:contentDescription="User Icon"-->
+<!--            android:layout_marginEnd="16dp" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/fullNameItem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Nama Lengkap"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="16sp"-->
+<!--                android:layout_marginBottom="4dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/usernameItem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Username"-->
+<!--                android:layout_marginBottom="2dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/emailItem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Email"-->
+<!--                android:layout_marginBottom="2dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tanggalLahirItem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Tanggal Lahir"-->
+<!--                android:layout_marginBottom="2dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/namaOrtuItem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Nama Orang Tua"-->
+<!--                android:layout_marginBottom="2dp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/nomorHpItem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Nomor HP" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/idKelasItem"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Kelas" />-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+<!--</androidx.cardview.widget.CardView>-->

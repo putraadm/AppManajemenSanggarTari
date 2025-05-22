@@ -53,4 +53,23 @@
         <item>C</item>
         <item>D</item>
     </string-array>
+
+    <string name="fill_all_fields">Please fill all fields</string>
+    <string name="report_added">Report added</string>
+    <string name="failed_add_report">Failed to add report</string>
+    <string name="report_updated">Report updated</string>
+    <string name="failed_update_report">Failed to update report</string>
+    <string name="jadwal_added">Jadwal berhasil ditambahkan</string>
+    <string name="failed_add_jadwal">Gagal menambahkan jadwal</string>
+    <string name="jadwal_updated">Jadwal berhasil diperbarui</string>
+    <string name="failed_update_jadwal">Gagal memperbarui jadwal</string>
+    <string name="lomba_added">Lomba berhasil ditambahkan</string>
+    <string name="failed_add_lomba">Gagal menambahkan lomba</string>
+    <string name="lomba_updated">Lomba berhasil diperbarui</string>
+    <string name="failed_update_lomba">Gagal memperbarui lomba</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="deskripsi_wirama">Deskripsi Wirama</string>
+    <string name="deskripsi_wirasa">Deskripsi Wirasa</string>
+    <string name="deskripsi_wiraga">Deskripsi Wiraga</string>
 </resources>

@@ -2,17 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_sanggar_gk"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppProject2CKel3.NoActionBar"
         android:enableOnBackInvokedCallback="true"
         tools:targetApi="31">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="zhafran.putra.appproject2ckel3.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity
             android:name=".UserActivity"
             android:exported="false"
@@ -22,29 +36,12 @@
             android:exported="false"
             android:label="@string/title_activity_admin"
             android:theme="@style/Theme.AppProject2CKel3.NoActionBar" />
-         <!-- android:theme="@style/Theme.Material3.Light" -->
-        <activity
-            android:name=".EditorLombaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditorReportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditorAbsensiActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditorJadwalActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EditorUserActivity"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppProject2CKel3.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

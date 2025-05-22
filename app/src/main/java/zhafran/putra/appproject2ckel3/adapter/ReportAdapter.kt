@@ -12,6 +12,7 @@ import zhafran.putra.appproject2ckel3.model.Report
 class ReportAdapter(
     private val context: Context,
     private var reportList: MutableList<Report>,
+    var userMap: Map<Int, String>,
     private val onItemClick: (View, Report) -> Unit
 ) : BaseAdapter() {
 
@@ -25,17 +26,29 @@ class ReportAdapter(
         val view: View = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_data_report, parent, false)
         val report = reportList[position]
 
+        val tvTitle = view.findViewById<TextView>(R.id.titleTextView)
+        val tvNama = view.findViewById<TextView>(R.id.tvNama)
         val tvTanggal = view.findViewById<TextView>(R.id.dateTextView)
-//        val tvWirama = view.findViewById<TextView>(R.id.tvWirama)
-//        val tvWirasa = view.findViewById<TextView>(R.id.tvWirasa)
-//        val tvWiraga = view.findViewById<TextView>(R.id.tvWiraga)
-//        val tvCatatan = view.findViewById<TextView>(R.id.tvCatatan)
+        val tvWirama = view.findViewById<TextView>(R.id.tvWirama)
+        val tvWirasa = view.findViewById<TextView>(R.id.tvWirasa)
+        val tvWiraga = view.findViewById<TextView>(R.id.tvWiraga)
+        val tvCatatan = view.findViewById<TextView>(R.id.tvCatatan)
+        val tvSemester = view.findViewById<TextView>(R.id.tvSemester)
+        val btnPrintPdf = view.findViewById<android.widget.Button>(R.id.btnPrintPdf)
 
+        val userName = userMap[report.idUser] ?: "Unknown User"
+        tvTitle.text = "Laporan Nilai"
         tvTanggal.text = report.tanggal
-//        tvWirama.text = report.wirama
-//        tvWirasa.text = report.wirasa
-//        tvWiraga.text = report.wiraga
-//        tvCatatan.text = report.catatan
+        tvNama.text = "Nama: $userName"
+        tvWirama.text = "Wirama: ${report.wirama}"
+        tvWirasa.text = "Wirasa: ${report.wirasa}"
+        tvWiraga.text = "Wiraga: ${report.wiraga}"
+        tvCatatan.text = "Catatan: ${report.catatan}"
+        tvSemester.text = "Semester: ${report.semester}"
+
+        btnPrintPdf.setOnClickListener {
+            onItemClick(it, report)
+        }
 
         view.setOnClickListener {
             onItemClick(it, report)

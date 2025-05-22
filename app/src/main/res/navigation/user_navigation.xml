@@ -17,9 +17,13 @@
         tools:layout="@layout/fragment_jadwal_kelas_user" />
     <fragment
         android:id="@+id/navigation_absensiFragment"
-        android:name="zhafran.putra.appproject2ckel3.ui_user.JadwalKelasFragmentUser"
+        android:name="zhafran.putra.appproject2ckel3.ui_user.AbsensiFragmentUser"
         android:label="@string/menu_absensi"
-        tools:layout="@layout/fragment_absensi_user" />
+        tools:layout="@layout/fragment_absensi_user">
+        <action
+            android:id="@+id/action_navigation_absensiFragment_to_absensiQrScannerFragment"
+            app:destination="@id/absensiQrScannerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_lombaFragment"
         android:name="zhafran.putra.appproject2ckel3.ui_user.LombaFragmentUser"
@@ -31,4 +35,9 @@
         android:label="@string/menu_report"
         tools:layout="@layout/fragment_report_user" />
 
+    <fragment
+        android:id="@+id/absensiQrScannerFragment"
+        android:name="zhafran.putra.appproject2ckel3.ui_user.AbsensiQrScannerFragment"
+        android:label="Scan QR Absensi"
+        tools:layout="@layout/fragment_absensi_qr_scanner" />
 </navigation>

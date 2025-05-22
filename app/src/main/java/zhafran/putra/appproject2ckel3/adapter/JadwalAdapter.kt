@@ -1,46 +1,48 @@
 package zhafran.putra.appproject2ckel3.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import zhafran.putra.appproject2ckel3.R
 import zhafran.putra.appproject2ckel3.model.Jadwal
 
 class JadwalAdapter(
-    private val context: Context,
     private var jadwalList: MutableList<Jadwal>,
     private val onItemClick: (View, Jadwal) -> Unit
-) : BaseAdapter() {
+) : RecyclerView.Adapter<JadwalAdapter.JadwalViewHolder>() {
 
-    override fun getCount(): Int = jadwalList.size
+    inner class JadwalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tvKelas: TextView = itemView.findViewById(R.id.tvKelas)
+        val tvHari: TextView = itemView.findViewById(R.id.tvHari)
+        val tvJam: TextView = itemView.findViewById(R.id.tvJam)
 
-    override fun getItem(position: Int): Any = jadwalList[position]
-
-    override fun getItemId(position: Int): Long = jadwalList[position].id_jadwal.toLong()
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_data_jadwal_kelas, parent, false)
-        val jadwal = jadwalList[position]
-
-        val tvKelas = view.findViewById<TextView>(R.id.tvKelas)
-        val tvHari = view.findViewById<TextView>(R.id.tvHari)
-        val tvJam = view.findViewById<TextView>(R.id.tvJam)
-
-        tvKelas.text = jadwal.kelas
-        tvHari.text = jadwal.hari
-        tvJam.text = jadwal.jam
-
-        view.setOnClickListener {
-            onItemClick(it, jadwal)
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(itemView, jadwalList[position])
+                }
+            }
         }
-
-        return view
     }
 
-    fun updateList(newList: List<Jadwal>) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JadwalViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_data_jadwal_kelas, parent, false)
+        return JadwalViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: JadwalViewHolder, position: Int) {
+        val jadwal = jadwalList[position]
+        holder.tvKelas.text = jadwal.kelas
+        holder.tvHari.text = jadwal.hari
+        holder.tvJam.text = jadwal.jam
+    }
+
+    override fun getItemCount(): Int = jadwalList.size
+
+    fun updateList(newList: MutableList<Jadwal>) {
         jadwalList.clear()
         jadwalList.addAll(newList)
         notifyDataSetChanged()
