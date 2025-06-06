@@ -6,12 +6,39 @@
     android:padding="16dp"
     tools:context=".ui_admin.AbsensiFragment">
 
+    <LinearLayout
+        android:id="@+id/rekapHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp">
+
+        <Spinner
+            android:id="@+id/spinnerRekap"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown" />
+
+        <Button
+            android:id="@+id/btnCetakPdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cetak PDF"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="64dp"
         android:clipToPadding="false"
-        android:paddingBottom="72dp" />
+        android:paddingBottom="72dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

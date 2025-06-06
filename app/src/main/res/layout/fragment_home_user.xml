@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="24dp"
     android:background="?attr/colorSurface"
     tools:context=".ui_user.HomeFragmentUser">
@@ -11,8 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:layout_gravity="center"
         android:padding="16dp">
 
         <com.google.android.material.card.MaterialCardView
@@ -22,21 +21,38 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_marginBottom="16dp">
-
             <TextView
                 android:id="@+id/tvWelcomeMessageUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:text="@string/hello_blank_fragment_user"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"
-                android:textColor="?attr/colorPrimary" />
+                android:textSize="10pt"
+                android:textStyle="bold"
+                android:textColor="@color/purple_5b308c" />
         </com.google.android.material.card.MaterialCardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="150dp"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo_sanggar_gk"
+                android:contentDescription="Logo Sanggar" />
+        </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGenerateQrCode"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Generate QR Code" />
+            android:text="Generate QR Code"
+            android:layout_marginTop="150dp"/>
 
     </LinearLayout>
 

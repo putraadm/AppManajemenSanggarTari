@@ -10,7 +10,12 @@ import zhafran.putra.appproject2ckel3.R
 import zhafran.putra.appproject2ckel3.model.User
 import android.widget.ImageView
 
-class UserAdapter(private val context: Context, private var userList: MutableList<User>, private val infoClickListener: OnInfoClickListener) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+class UserAdapter(
+    private val context: Context,
+    private var userList: MutableList<User>,
+    private val infoClickListener: OnInfoClickListener,
+    private val kelasMap: Map<Int, String>
+) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     interface OnInfoClickListener {
         fun onInfoClick(user: User)
@@ -57,7 +62,7 @@ class UserAdapter(private val context: Context, private var userList: MutableLis
         val user = userList[position]
         holder.tvName.text = user.namaLengkap
         holder.tvUsername.text = user.username
-        holder.tvIdKelas.text = user.kelasId?.toString() ?: "-"
+        holder.tvIdKelas.text = kelasMap[user.kelasId ?: 0] ?: "-"
     }
 
     override fun getItemCount(): Int = userList.size
@@ -66,5 +71,9 @@ class UserAdapter(private val context: Context, private var userList: MutableLis
         userList.clear()
         userList.addAll(newList)
         notifyDataSetChanged()
+    }
+
+    fun getUserAt(position: Int): User {
+        return userList[position]
     }
 }

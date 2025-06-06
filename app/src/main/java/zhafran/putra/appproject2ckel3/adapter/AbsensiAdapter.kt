@@ -67,6 +67,10 @@ class AbsensiAdapter(
         notifyDataSetChanged()
     }
 
+    fun getAbsensiList(): List<Absensi> {
+        return absensiList
+    }
+
     private class ViewHolder(view: View, mode: Mode) {
         val tvNama: TextView? = if (mode == Mode.ADMIN) view.findViewById(R.id.tvNama) else null
         val tvStatus: TextView? = if (mode == Mode.ADMIN) view.findViewById(R.id.tvStatus) else null

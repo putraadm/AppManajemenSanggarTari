@@ -1,5 +1,6 @@
 package zhafran.putra.appproject2ckel3.ui_user
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -36,6 +37,7 @@ class HomeFragmentUser : Fragment() {
         preferences = preferences(requireContext())
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

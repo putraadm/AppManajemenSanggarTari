@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import zhafran.putra.appproject2ckel3.R
 import zhafran.putra.appproject2ckel3.databinding.FragmentHomeBinding
 import zhafran.putra.appproject2ckel3.repository.JadwalRepository
@@ -45,39 +46,42 @@ class HomeFragment : Fragment() {
     private fun setupCounts() {
         userRepository.getAllUserProfiles { profiles ->
             activity?.runOnUiThread {
-                binding.tvJmlhUser.text = profiles.size.toString()
+                _binding?.let {
+                    it.tvJmlhUser.text = profiles.size.toString()
+                }
             }
         }
         jadwalRepository.getAllJadwal { jadwalList ->
             activity?.runOnUiThread {
-                binding.tvJmlhJadwal.text = jadwalList.size.toString()
+                _binding?.let {
+                    it.tvJmlhJadwal.text = jadwalList.size.toString()
+                }
             }
         }
         reportRepository.getAllReports { reportList ->
             activity?.runOnUiThread {
-                binding.tvJmlhLaporan.text = reportList.size.toString()
+                _binding?.let {
+                    it.tvJmlhLaporan.text = reportList.size.toString()
+                }
             }
         }
     }
 
     private fun setupButtonListeners() {
         binding.btnKelolaUser.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_content_admin, UserFragment())
-                .addToBackStack(null)
-                .commit()
+            findNavController().navigate(R.id.nav_user)
         }
         binding.btnKelolaJadwal.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_content_admin, AdminEditJadwalFragment())
-                .addToBackStack(null)
-                .commit()
+            findNavController().navigate(R.id.nav_jadwal_kelas)
+        }
+        binding.btnKelolaAbsensi.setOnClickListener {
+            findNavController().navigate(R.id.nav_absensi)
+        }
+        binding.btnKelolaLomba.setOnClickListener {
+            findNavController().navigate(R.id.nav_info_lomba)
         }
         binding.btnKelolaReport.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_content_admin, AdminEditReportFragment())
-                .addToBackStack(null)
-                .commit()
+            findNavController().navigate(R.id.nav_report)
         }
     }
 

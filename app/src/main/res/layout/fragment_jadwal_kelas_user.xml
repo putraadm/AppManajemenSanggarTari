@@ -108,9 +108,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvlbJam"
                 app:layout_constraintStart_toEndOf="@+id/tvlbJam"
                 app:layout_constraintTop_toTopOf="@+id/tvlbJam" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
-
 </FrameLayout>

@@ -10,10 +10,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.snackbar.Snackbar
+//import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.navigation.ui.NavigationUI
 import zhafran.putra.appproject2ckel3.databinding.ActivityAdminBinding
 
 class AdminActivity : AppCompatActivity() {
@@ -30,11 +32,12 @@ class AdminActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarAdmin.toolbar)
 
-        binding.appBarAdmin.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
-        }
+//        binding.appBarAdmin.fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null)
+//                .setAnchorView(R.id.fab).show()
+//        }
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
 
@@ -49,16 +52,31 @@ class AdminActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
                 R.id.nav_home -> {
-                    binding.appBarAdmin.fab.show()
+                    navController.popBackStack(R.id.nav_home, false) // navigasi eksplisit ke home
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
                 }
                 else -> {
-                    binding.appBarAdmin.fab.hide()
+                    NavigationUI.onNavDestinationSelected(menuItem, navController)
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
                 }
             }
         }
+
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            when (destination.id) {
+//                R.id.nav_home -> {
+//                    binding.appBarAdmin.fab.show()
+//                }
+//                else -> {
+//                    binding.appBarAdmin.fab.hide()
+//                }
+//            }
+//        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -18,6 +18,13 @@
             android:spinnerMode="dropdown"
             android:layout_marginBottom="8dp" />
 
+        <Button
+            android:id="@+id/btnPrintPdf"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Cetak PDF"
+            android:layout_marginBottom="8dp" />
+
         <ListView
             android:id="@+id/list_view"
             android:layout_width="match_parent"

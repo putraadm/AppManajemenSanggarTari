@@ -100,6 +100,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            app:endIconMode="password_toggle"
             app:boxBackgroundColor="?attr/colorSurface"
             app:boxBackgroundMode="outline"
             app:boxCornerRadiusTopStart="35dp"
